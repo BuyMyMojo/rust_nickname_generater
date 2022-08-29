@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["NameType",""]],"struct":[["NameInfo",""],["NameTemplate",""]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["FUNCTION_TEMPLTES","A list of function looking templates"],["FUNCTION_VARIABLE_TEMPLTES","A list of templates with the username inside a function"],["MACRO_TEMPLTES","A list of templates with the username inside a macro"],["VARIABLE_TEMPLTES","A list of variable looking templates"]]};
