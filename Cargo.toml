@@ -2,7 +2,7 @@
 name = "rust_nickname_generater"
 description = "A rust library that generates user/nick names based on the rust language"
 repository = "https://github.com/BuyMyMojo/rust_nickname_generater"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 authors = ["BuyMyMojo <hello@buymymojo.net>"]
 license = "Apache-2.0"
