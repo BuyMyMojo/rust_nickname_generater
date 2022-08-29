@@ -15,7 +15,7 @@ example_custom_template = ["custom_templates"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-new_string_template = { git = "https://github.com/BuyMyMojo/new_string_template" } # my fork only has a few clean up stuff, not actually required
+new_string_template = { git = "https://github.com/BuyMyMojo/new_string_template", version = "1.3.1" } # my fork only has a few clean up stuff, not actually required
 once_cell = "1.13.1"
 rand = "0.8.5"
 regex = "1.6.0"
