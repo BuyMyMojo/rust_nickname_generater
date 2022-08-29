@@ -100,7 +100,7 @@ pub fn generate_random_name(username: String, char_limit: u32) -> Result<String>
     generate_name(username, *template)
 }
 
-/// Returns a Vec of all template names
+/// Returns a Vec<String> of all template names
 pub fn get_all_template_names() -> Vec<String> {
     let templates = get_all_templates();
 
@@ -115,7 +115,7 @@ pub fn get_all_template_names() -> Vec<String> {
     names
 }
 
-/// Returns a Vec of all template names
+/// Returns a Vec<String> of all template examples
 pub fn get_all_template_examples() -> Vec<String> {
     let templates = get_all_templates();
 
@@ -131,7 +131,7 @@ pub fn get_all_template_examples() -> Vec<String> {
 }
 
 // TODO: Add fuzzy search?
-/// Returns an option with a name matching the input
+/// Returns an option with a template with the given name
 pub fn get_template_by_name(name: String) -> Option<NameTemplate<'static>> {
     let templates = get_all_templates();
 

@@ -426,7 +426,7 @@
     <span class="ident">generate_name</span>(<span class="ident">username</span>, <span class="kw-2">*</span><span class="ident">template</span>)
 }
 
-<span class="doccomment">/// Returns a Vec of all template names</span>
+<span class="doccomment">/// Returns a Vec&lt;String&gt; of all template names</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_all_template_names</span>() -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">templates</span> <span class="op">=</span> <span class="ident">get_all_templates</span>();
 
@@ -441,7 +441,7 @@
     <span class="ident">names</span>
 }
 
-<span class="doccomment">/// Returns a Vec of all template names</span>
+<span class="doccomment">/// Returns a Vec&lt;String&gt; of all template examples</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_all_template_examples</span>() -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">templates</span> <span class="op">=</span> <span class="ident">get_all_templates</span>();
 
@@ -457,7 +457,7 @@
 }
 
 <span class="comment">// TODO: Add fuzzy search?</span>
-<span class="doccomment">/// Returns an option with a name matching the input</span>
+<span class="doccomment">/// Returns an option with a template with the given name</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_template_by_name</span>(<span class="ident">name</span>: <span class="ident">String</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&lt;</span><span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">templates</span> <span class="op">=</span> <span class="ident">get_all_templates</span>();
 
