@@ -1,4 +1,5 @@
-//! !["ay that's where the 'stralian accent comes through"](https://raw.githubusercontent.com/BuyMyMojo/rust_nickname_generater/master/images/TheReasonTheNameIsSpeltLikeThatOhMyThisIsALongFileName.png)
+//!
+//! [!["ay that's where the 'stralian accent comes through"](https://raw.githubusercontent.com/BuyMyMojo/rust_nickname_generater/master/images/TheReasonTheNameIsSpeltLikeThatOhMyThisIsALongFileName.png)](https://s3.buymymojo.net/ShareX/2022/08/01/17/rust%20nickname%20genera.wav)
 //!
 //! > Yes I am australian :)
 //!
