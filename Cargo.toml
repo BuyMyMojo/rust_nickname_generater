@@ -1,0 +1,25 @@
+[package]
+name = "rust_nickname_generater"
+description = ""
+version = "1.0.0"
+edition = "2021"
+authors = ["BuyMyMojo <hello@buymymojo.net>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[features]
+default = []
+custom_templates = []
+example_custom_template = ["custom_templates"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+new_string_template = { git = "https://github.com/BuyMyMojo/new_string_template" } # my fork only has a few clean up stuff, not actually required
+once_cell = "1.13.1"
+rand = "0.8.5"
+regex = "1.6.0"
+# tracing = "0.1.36"
+
+[profile.release]
+lto = "thin"
