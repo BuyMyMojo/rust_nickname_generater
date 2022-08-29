@@ -1,6 +1,7 @@
 [package]
 name = "rust_nickname_generater"
-description = ""
+description = "A rust library that generates user/nick names based on the rust language"
+repository = "https://github.com/BuyMyMojo/rust_nickname_generater"
 version = "1.0.0"
 edition = "2021"
 authors = ["BuyMyMojo <hello@buymymojo.net>"]
