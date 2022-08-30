@@ -1,10 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/templates.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>templates.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../rust_nickname_generater/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../rust_nickname_generater/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../rust_nickname_generater/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/templates.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>templates.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../rust_nickname_generater/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../rust_nickname_generater/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../rust_nickname_generater/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -492,494 +486,493 @@
 <span id="486">486</span>
 <span id="487">487</span>
 <span id="488">488</span>
-</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">allow</span>(<span class="ident">rustdoc::invalid_rust_codeblocks</span>)]</span> <span class="comment">// The code block is only for visual purposes</span>
-<span class="doccomment">//! All of the templates built into this lib are meant to resemble a litle bit of rust code.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Use `get_all_templates()` to get them all as a Vec or `get_template_by_name()` to get a specific one by name.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Current list of example outputs:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rs</span>
-<span class="doccomment">//! username(foo: bar);</span>
-<span class="doccomment">//! username.consume_coffee();</span>
-<span class="doccomment">//! username.count_brain_cells() //0</span>
-<span class="doccomment">//! username.parse::&lt;u64&gt;();</span>
-<span class="doccomment">//! #![allow(username)]</span>
-<span class="doccomment">//! &amp;mut username</span>
-<span class="doccomment">//! &amp;username</span>
-<span class="doccomment">//! #![deny(warnings)] yuna();</span>
-<span class="doccomment">//! *username</span>
-<span class="doccomment">//! Err(username);</span>
-<span class="doccomment">//! username(cookies: Vec&lt;cookie&gt;)</span>
-<span class="doccomment">//! #![github(username)]</span>
-<span class="doccomment">//! Arc&lt;username&gt;</span>
-<span class="doccomment">//! Box&lt;username&gt;</span>
-<span class="doccomment">//! Mutex&lt;username&gt;</span>
-<span class="doccomment">//! !username</span>
-<span class="doccomment">//! Ok(username)</span>
-<span class="doccomment">//! Ok::&lt;(), username&gt;(())</span>
-<span class="doccomment">//! username || something</span>
-<span class="doccomment">//! () -&gt; username</span>
-<span class="doccomment">//! Self::username();</span>
-<span class="doccomment">//! Some(&quot;username&quot;);</span>
-<span class="doccomment">//! unsafe {username();}</span>
-<span class="doccomment">//! username::MAX</span>
-<span class="doccomment">//! username::MIN</span>
-<span class="doccomment">//! &amp;&#39;a evelyn</span>
-<span class="doccomment">//! assert!(&quot;username&quot;);</span>
-<span class="doccomment">//! #[cfg(feature = &quot;username&quot;]</span>
-<span class="doccomment">//! dbg!(&quot;username&quot;)</span>
-<span class="doccomment">//! #![derive(username)]</span>
-<span class="doccomment">//! for x in username</span>
-<span class="doccomment">//! impl Debug for username</span>
-<span class="doccomment">//! impl Display for username</span>
-<span class="doccomment">//! 0..=username</span>
-<span class="doccomment">//! username::new();</span>
-<span class="doccomment">//! panic!(&quot;username&quot;);</span>
-<span class="doccomment">//! poise::username</span>
-<span class="doccomment">//! print!(&quot;username&quot;);</span>
-<span class="doccomment">//! println!(&quot;username&quot;);</span>
-<span class="doccomment">//! 0..username</span>
-<span class="doccomment">//! serenity::username</span>
-<span class="doccomment">//! std::username</span>
-<span class="doccomment">//! tokio::username</span>
-<span class="doccomment">//! tracing::username</span>
-<span class="doccomment">//! vec![username]</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::template_struct</span>::{<span class="ident">NameInfo</span>, <span class="ident">NameTemplate</span>, <span class="ident">NameType</span>};
+</pre><pre class="rust"><code><span class="attribute">#![allow(rustdoc::invalid_rust_codeblocks)] </span><span class="comment">// The code block is only for visual purposes
+</span><span class="doccomment">//! All of the templates built into this lib are meant to resemble a litle bit of rust code.
+//!
+//! Use `get_all_templates()` to get them all as a Vec or `get_template_by_name()` to get a specific one by name.
+//!
+//! Current list of example outputs:
+//!
+//! ```rs
+//! username(foo: bar);
+//! username.consume_coffee();
+//! username.count_brain_cells() //0
+//! username.parse::&lt;u64&gt;();
+//! #![allow(username)]
+//! &amp;mut username
+//! &amp;username
+//! #![deny(warnings)] yuna();
+//! *username
+//! Err(username);
+//! username(cookies: Vec&lt;cookie&gt;)
+//! #![github(username)]
+//! Arc&lt;username&gt;
+//! Box&lt;username&gt;
+//! Mutex&lt;username&gt;
+//! !username
+//! Ok(username)
+//! Ok::&lt;(), username&gt;(())
+//! username || something
+//! () -&gt; username
+//! Self::username();
+//! Some(&quot;username&quot;);
+//! unsafe {username();}
+//! username::MAX
+//! username::MIN
+//! &amp;&#39;a evelyn
+//! assert!(&quot;username&quot;);
+//! #[cfg(feature = &quot;username&quot;]
+//! dbg!(&quot;username&quot;)
+//! #![derive(username)]
+//! for x in username
+//! impl Debug for username
+//! impl Display for username
+//! 0..=username
+//! username::new();
+//! panic!(&quot;username&quot;);
+//! poise::username
+//! print!(&quot;username&quot;);
+//! println!(&quot;username&quot;);
+//! 0..username
+//! serenity::username
+//! std::username
+//! tokio::username
+//! tracing::username
+//! vec![username]
+//!
+//! ```
+</span><span class="kw">use </span><span class="kw">crate</span>::template_struct::{NameInfo, NameTemplate, NameType};
 
-<span class="doccomment">/// A list of function looking templates</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FUNCTION_TEMPLTES</span>: [<span class="ident">NameTemplate</span>; <span class="number">10</span>] <span class="op">=</span> [
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Deny warnings&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;#![deny(warnings)] {{ username }}();&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;#![deny(warnings)] yuna();&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">22</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+<span class="doccomment">/// A list of function looking templates
+</span><span class="kw">pub const </span>FUNCTION_TEMPLTES: [NameTemplate; <span class="number">10</span>] = [
+    NameTemplate {
+        name: <span class="string">&quot;Deny warnings&quot;</span>,
+        contents: <span class="string">&quot;#![deny(warnings)] {{ username }}();&quot;</span>,
+        example: <span class="string">&quot;#![deny(warnings)] yuna();&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">22</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;impl Debug&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;impl Debug for {{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;impl Debug for Mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">15</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;impl Debug&quot;</span>,
+        contents: <span class="string">&quot;impl Debug for {{ username }}&quot;</span>,
+        example: <span class="string">&quot;impl Debug for Mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">15</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;impl Display&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;impl Display for {{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;impl Display for Mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">17</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;impl Display&quot;</span>,
+        contents: <span class="string">&quot;impl Display for {{ username }}&quot;</span>,
+        example: <span class="string">&quot;impl Display for Mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">17</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Function that takes cookies&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}(cookies: Vec&lt;cookie&gt;)&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo(cookies: Vec&lt;cookie&gt;)&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">22</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Function that takes cookies&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}(cookies: Vec&lt;cookie&gt;)&quot;</span>,
+        example: <span class="string">&quot;mojo(cookies: Vec&lt;cookie&gt;)&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">22</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;(foo: bar) function&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}(foo: bar);&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo(foo: bar);&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">11</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;(foo: bar) function&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}(foo: bar);&quot;</span>,
+        example: <span class="string">&quot;mojo(foo: bar);&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">11</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Unsafe function&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;unsafe {{{ username }}();}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;unsafe {mojo();}&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">12</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Unsafe function&quot;</span>,
+        contents: <span class="string">&quot;unsafe {{{ username }}();}&quot;</span>,
+        example: <span class="string">&quot;unsafe {mojo();}&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">12</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;.parse::&lt;u64&gt;();&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}.parse::&lt;u64&gt;();&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo.parse::&lt;u64&gt;();&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">16</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;.parse::&lt;u64&gt;();&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}.parse::&lt;u64&gt;();&quot;</span>,
+        example: <span class="string">&quot;mojo.parse::&lt;u64&gt;();&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">16</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Self::();&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;Self::{{ username }}();&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;Self::mojo();&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">9</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Self::();&quot;</span>,
+        contents: <span class="string">&quot;Self::{{ username }}();&quot;</span>,
+        example: <span class="string">&quot;Self::mojo();&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">9</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;.consume_coffee();&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}.consume_coffee();&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo.consume_coffee();&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">19</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;.consume_coffee();&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}.consume_coffee();&quot;</span>,
+        example: <span class="string">&quot;mojo.consume_coffee();&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">19</span>,
+            name_type: NameType::Function,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;.count_brain_cells() //0&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}.count_brain_cells() //0&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo.count_brain_cells() //0&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">24</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Function</span>,
+    NameTemplate {
+        name: <span class="string">&quot;.count_brain_cells() //0&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}.count_brain_cells() //0&quot;</span>,
+        example: <span class="string">&quot;mojo.count_brain_cells() //0&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">24</span>,
+            name_type: NameType::Function,
         },
     },
 ];
 
-<span class="doccomment">/// A list of variable looking templates</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">VARIABLE_TEMPLTES</span>: [<span class="ident">NameTemplate</span>; <span class="number">12</span>] <span class="op">=</span> [
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Var with &amp;&#39;a lifetime&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;&amp;&#39;a {{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;&amp;&#39;a evelyn&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">3</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+<span class="doccomment">/// A list of variable looking templates
+</span><span class="kw">pub const </span>VARIABLE_TEMPLTES: [NameTemplate; <span class="number">12</span>] = [
+    NameTemplate {
+        name: <span class="string">&quot;Var with &amp;&#39;a lifetime&quot;</span>,
+        contents: <span class="string">&quot;&amp;&#39;a {{ username }}&quot;</span>,
+        example: <span class="string">&quot;&amp;&#39;a evelyn&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">3</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Borrowed var&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;&amp;{{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;&amp;mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">1</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Borrowed var&quot;</span>,
+        contents: <span class="string">&quot;&amp;{{ username }}&quot;</span>,
+        example: <span class="string">&quot;&amp;mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">1</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Inside an arc&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;Arc&lt;{{ username }}&gt;&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;Arc&lt;mojo&gt;&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">5</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Inside an arc&quot;</span>,
+        contents: <span class="string">&quot;Arc&lt;{{ username }}&gt;&quot;</span>,
+        example: <span class="string">&quot;Arc&lt;mojo&gt;&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">5</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Inside an box&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;Box&lt;{{ username }}&gt;&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;Box&lt;mojo&gt;&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">5</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Inside an box&quot;</span>,
+        contents: <span class="string">&quot;Box&lt;{{ username }}&gt;&quot;</span>,
+        example: <span class="string">&quot;Box&lt;mojo&gt;&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">5</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Inside an mutex&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;Mutex&lt;{{ username }}&gt;&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;Mutex&lt;mojo&gt;&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">7</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Inside an mutex&quot;</span>,
+        contents: <span class="string">&quot;Mutex&lt;{{ username }}&gt;&quot;</span>,
+        example: <span class="string">&quot;Mutex&lt;mojo&gt;&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">7</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Borrowed mutable var&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;&amp;mut {{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;&amp;mut mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">5</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Borrowed mutable var&quot;</span>,
+        contents: <span class="string">&quot;&amp;mut {{ username }}&quot;</span>,
+        example: <span class="string">&quot;&amp;mut mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">5</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Dereferenced var&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;*{{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;*mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">1</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Dereferenced var&quot;</span>,
+        contents: <span class="string">&quot;*{{ username }}&quot;</span>,
+        example: <span class="string">&quot;*mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">1</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Inverted bool&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;!{{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;!mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">1</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Inverted bool&quot;</span>,
+        contents: <span class="string">&quot;!{{ username }}&quot;</span>,
+        example: <span class="string">&quot;!mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">1</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Return type&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;() -&gt; {{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;() -&gt; mojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">6</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Return type&quot;</span>,
+        contents: <span class="string">&quot;() -&gt; {{ username }}&quot;</span>,
+        example: <span class="string">&quot;() -&gt; mojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">6</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Or something&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }} || something&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo || something&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">13</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Or something&quot;</span>,
+        contents: <span class="string">&quot;{{ username }} || something&quot;</span>,
+        example: <span class="string">&quot;mojo || something&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">13</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Var MAX&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}::MAX&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo::MAX&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">5</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Var MAX&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}::MAX&quot;</span>,
+        example: <span class="string">&quot;mojo::MAX&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">5</span>,
+            name_type: NameType::Var,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Var MIN&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}::MIN&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;mojo::MIN&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">5</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Var</span>,
-        },
-    },
-];
-
-<span class="doccomment">/// A list of templates with the username inside a function</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FUNCTION_VARIABLE_TEMPLTES</span>: [<span class="ident">NameTemplate</span>; <span class="number">10</span>] <span class="op">=</span> [
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Some();&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;Some(&quot;{{ username }}&quot;);&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;Some(&quot;BuyMyMojo&quot;);&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">9</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Ok()&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;Ok({{ username }})&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;Ok(BuyMyMojo&quot;)&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">4</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Ok::&lt;(), &gt;(())&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;Ok::&lt;(), {{ username }}&gt;(())&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;Ok::&lt;(), Mojo&gt;(())&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">14</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Err();&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;Err({{ username }});&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;Err(&quot;BuyMyMojo&quot;);&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">6</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;new()&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;{{ username }}::new();&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;BuyMyMojo::new();&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">8</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;for loop&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;for x in {{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;for x in BuyMyMojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">9</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;range&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;0..{{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;0..BuyMyMojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">3</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;inclusive range&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;0..={{ username }}&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;0..=BuyMyMojo&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">4</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;print!&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;print!(&quot;{{ username }}&quot;);&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;print!(&quot;mojo&quot;);&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">11</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;println!&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;println!(&quot;{{ username }}&quot;);&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;println!(&quot;mojo&quot;);&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">13</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::FunctionVar</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Var MIN&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}::MIN&quot;</span>,
+        example: <span class="string">&quot;mojo::MIN&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">5</span>,
+            name_type: NameType::Var,
         },
     },
 ];
 
-<span class="doccomment">/// A list of templates with the username inside a macro</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MACRO_TEMPLTES</span>: [<span class="ident">NameTemplate</span>; <span class="number">13</span>] <span class="op">=</span> [
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Allow use&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;#![allow({{ username }})]&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;#![allow(mojo)]&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">11</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+<span class="doccomment">/// A list of templates with the username inside a function
+</span><span class="kw">pub const </span>FUNCTION_VARIABLE_TEMPLTES: [NameTemplate; <span class="number">10</span>] = [
+    NameTemplate {
+        name: <span class="string">&quot;Some();&quot;</span>,
+        contents: <span class="string">r#&quot;Some(&quot;{{ username }}&quot;);&quot;#</span>,
+        example: <span class="string">r#&quot;Some(&quot;BuyMyMojo&quot;);&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">9</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;cfg feature&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;#[cfg(feature = &quot;{{ username }}&quot;]&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;#[cfg(feature = &quot;mojo&quot;]&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">19</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Ok()&quot;</span>,
+        contents: <span class="string">r#&quot;Ok({{ username }})&quot;#</span>,
+        example: <span class="string">r#&quot;Ok(BuyMyMojo&quot;)&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">4</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;Github macro&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;#![github({{ username }})]&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;#![github(mojo)]&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">12</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Ok::&lt;(), &gt;(())&quot;</span>,
+        contents: <span class="string">&quot;Ok::&lt;(), {{ username }}&gt;(())&quot;</span>,
+        example: <span class="string">&quot;Ok::&lt;(), Mojo&gt;(())&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">14</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;derive&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;#![derive({{ username }})]&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;#![derive(mojo)]&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">16</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;Err();&quot;</span>,
+        contents: <span class="string">r#&quot;Err({{ username }});&quot;#</span>,
+        example: <span class="string">r#&quot;Err(&quot;BuyMyMojo&quot;);&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">6</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;assert!();&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;assert!(&quot;{{ username }}&quot;);&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;assert!(&quot;BuyMyMojo&quot;);&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">12</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;new()&quot;</span>,
+        contents: <span class="string">&quot;{{ username }}::new();&quot;</span>,
+        example: <span class="string">&quot;BuyMyMojo::new();&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">8</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;vec!&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">&quot;vec![{{ username }}]&quot;</span>,
-        <span class="ident">example</span>: <span class="string">&quot;vec![mojo]&quot;</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">6</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;for loop&quot;</span>,
+        contents: <span class="string">&quot;for x in {{ username }}&quot;</span>,
+        example: <span class="string">&quot;for x in BuyMyMojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">9</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;dbg!&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;dbg!(&quot;{{ username }}&quot;)&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;dbg!(&quot;mojo&quot;)&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">8</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;range&quot;</span>,
+        contents: <span class="string">&quot;0..{{ username }}&quot;</span>,
+        example: <span class="string">&quot;0..BuyMyMojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">3</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;panic!&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;panic!(&quot;{{ username }}&quot;);&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;panic!(&quot;mojo&quot;);&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">11</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;inclusive range&quot;</span>,
+        contents: <span class="string">&quot;0..={{ username }}&quot;</span>,
+        example: <span class="string">&quot;0..=BuyMyMojo&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">4</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;tokio::&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;tokio::{{ username }}&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;tokio::mojo&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">7</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;print!&quot;</span>,
+        contents: <span class="string">r#&quot;print!(&quot;{{ username }}&quot;);&quot;#</span>,
+        example: <span class="string">r#&quot;print!(&quot;mojo&quot;);&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">11</span>,
+            name_type: NameType::FunctionVar,
         },
     },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;std::&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;std::{{ username }}&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;std::mojo&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">5</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;tracing::&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;tracing::{{ username }}&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;tracing::mojo&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">9</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;poise::&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;poise::{{ username }}&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;poise::mojo&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">7</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
-        },
-    },
-    <span class="ident">NameTemplate</span> {
-        <span class="ident">name</span>: <span class="string">&quot;serenity::&quot;</span>,
-        <span class="ident">contents</span>: <span class="string">r#&quot;serenity::{{ username }}&quot;#</span>,
-        <span class="ident">example</span>: <span class="string">r#&quot;serenity::mojo&quot;#</span>,
-        <span class="ident">info</span>: <span class="ident">NameInfo</span> {
-            <span class="ident">len</span>: <span class="number">10</span>,
-            <span class="ident">name_type</span>: <span class="ident">NameType::Macro</span>,
+    NameTemplate {
+        name: <span class="string">&quot;println!&quot;</span>,
+        contents: <span class="string">r#&quot;println!(&quot;{{ username }}&quot;);&quot;#</span>,
+        example: <span class="string">r#&quot;println!(&quot;mojo&quot;);&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">13</span>,
+            name_type: NameType::FunctionVar,
         },
     },
 ];
 
-<span class="comment">// ! need to redo custom templates</span>
-<span class="comment">// pub const EXAMPLE_CUSTOM_TEMPLTES: [NameTemplate; 1] = [NameTemplate {</span>
-<span class="comment">//     name: &quot;Example custom template&quot;,</span>
-<span class="comment">//     contents: &quot;{{ username }} is cool&quot;,</span>
-<span class="comment">//     example: &quot;jeff is cool&quot;,</span>
-<span class="comment">//     info: NameInfo {</span>
-<span class="comment">//         len: 8,</span>
-<span class="comment">//         name_type: NameType::Custom(&quot;Example&quot;),</span>
-<span class="comment">//     },</span>
-<span class="comment">// }];</span>
-</code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="rust_nickname_generater" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0 (4b91a6ea7 2022-08-08)" ></div>
-</body></html>
+<span class="doccomment">/// A list of templates with the username inside a macro
+</span><span class="kw">pub const </span>MACRO_TEMPLTES: [NameTemplate; <span class="number">13</span>] = [
+    NameTemplate {
+        name: <span class="string">&quot;Allow use&quot;</span>,
+        contents: <span class="string">&quot;#![allow({{ username }})]&quot;</span>,
+        example: <span class="string">&quot;#![allow(mojo)]&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">11</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;cfg feature&quot;</span>,
+        contents: <span class="string">r#&quot;#[cfg(feature = &quot;{{ username }}&quot;]&quot;#</span>,
+        example: <span class="string">r#&quot;#[cfg(feature = &quot;mojo&quot;]&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">19</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;Github macro&quot;</span>,
+        contents: <span class="string">&quot;#![github({{ username }})]&quot;</span>,
+        example: <span class="string">&quot;#![github(mojo)]&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">12</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;derive&quot;</span>,
+        contents: <span class="string">&quot;#![derive({{ username }})]&quot;</span>,
+        example: <span class="string">&quot;#![derive(mojo)]&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">16</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;assert!();&quot;</span>,
+        contents: <span class="string">r#&quot;assert!(&quot;{{ username }}&quot;);&quot;#</span>,
+        example: <span class="string">r#&quot;assert!(&quot;BuyMyMojo&quot;);&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">12</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;vec!&quot;</span>,
+        contents: <span class="string">&quot;vec![{{ username }}]&quot;</span>,
+        example: <span class="string">&quot;vec![mojo]&quot;</span>,
+        info: NameInfo {
+            len: <span class="number">6</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;dbg!&quot;</span>,
+        contents: <span class="string">r#&quot;dbg!(&quot;{{ username }}&quot;)&quot;#</span>,
+        example: <span class="string">r#&quot;dbg!(&quot;mojo&quot;)&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">8</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;panic!&quot;</span>,
+        contents: <span class="string">r#&quot;panic!(&quot;{{ username }}&quot;);&quot;#</span>,
+        example: <span class="string">r#&quot;panic!(&quot;mojo&quot;);&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">11</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;tokio::&quot;</span>,
+        contents: <span class="string">r#&quot;tokio::{{ username }}&quot;#</span>,
+        example: <span class="string">r#&quot;tokio::mojo&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">7</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;std::&quot;</span>,
+        contents: <span class="string">r#&quot;std::{{ username }}&quot;#</span>,
+        example: <span class="string">r#&quot;std::mojo&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">5</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;tracing::&quot;</span>,
+        contents: <span class="string">r#&quot;tracing::{{ username }}&quot;#</span>,
+        example: <span class="string">r#&quot;tracing::mojo&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">9</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;poise::&quot;</span>,
+        contents: <span class="string">r#&quot;poise::{{ username }}&quot;#</span>,
+        example: <span class="string">r#&quot;poise::mojo&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">7</span>,
+            name_type: NameType::Macro,
+        },
+    },
+    NameTemplate {
+        name: <span class="string">&quot;serenity::&quot;</span>,
+        contents: <span class="string">r#&quot;serenity::{{ username }}&quot;#</span>,
+        example: <span class="string">r#&quot;serenity::mojo&quot;#</span>,
+        info: NameInfo {
+            len: <span class="number">10</span>,
+            name_type: NameType::Macro,
+        },
+    },
+];
+
+<span class="comment">// ! need to redo custom templates
+// pub const EXAMPLE_CUSTOM_TEMPLTES: [NameTemplate; 1] = [NameTemplate {
+//     name: &quot;Example custom template&quot;,
+//     contents: &quot;{{ username }} is cool&quot;,
+//     example: &quot;jeff is cool&quot;,
+//     info: NameInfo {
+//         len: 8,
+//         name_type: NameType::Custom(&quot;Example&quot;),
+//     },
+// }];
+</span></code></pre></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="rust_nickname_generater" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (bc4b39c27 2022-08-29)" ></div></body></html>

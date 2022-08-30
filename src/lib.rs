@@ -37,7 +37,7 @@ use crate::templates::{
 static STRING_TEMPLATE_MATCHER: Lazy<Regex> =
     Lazy::new(|| Regex::new(r"(?mi)\{\{\s+([^\}]+)\s+\}\}").unwrap());
 
-/// Given a useranem and `NameTemplate` output the rendered name
+/// Given a username and `NameTemplate` output the rendered name
 ///
 /// ```rust
 /// use rust_nickname_generater::template_struct::*;
