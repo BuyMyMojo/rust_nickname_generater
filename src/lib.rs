@@ -32,6 +32,11 @@ use crate::templates::{
     FUNCTION_TEMPLTES, FUNCTION_VARIABLE_TEMPLTES, MACRO_TEMPLTES, VARIABLE_TEMPLTES,
 };
 
+// ? I don't think I need to make this public?
+// The following regex requires at least one space between "{{" and "}}" and allows variables with spaces
+static STRING_TEMPLATE_MATCHER: Lazy<Regex> =
+    Lazy::new(|| Regex::new(r"(?mi)\{\{\s+([^\}]+)\s+\}\}").unwrap());
+
 /// Given a useranem and NameTemplate output the rendered name
 ///
 /// ```rust
@@ -47,10 +52,6 @@ use crate::templates::{
 ///
 /// ```
 pub fn generate_name(username: String, template: NameTemplate) -> Result<String> {
-    // The following regex requires at least one space between "{{" and "}}" and allows variables with spaces
-    static STRING_TEMPLATE_MATCHER: Lazy<Regex> =
-        Lazy::new(|| Regex::new(r"(?mi)\{\{\s+([^\}]+)\s+\}\}").unwrap());
-
     let templ = Template::new(template.contents).with_regex(&STRING_TEMPLATE_MATCHER);
     let data = {
         let mut map = HashMap::new();
