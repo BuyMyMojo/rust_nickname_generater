@@ -1,5 +1,5 @@
 use new_string_template::error::TemplateError;
-use std::fmt;
+use std::{fmt, num::TryFromIntError};
 
 pub type Result<T> = std::result::Result<T, Error>;
 
@@ -11,6 +11,7 @@ pub enum Error {
     LengthLimit,
     NoValidName,
     StringTemplate(String),
+    UsernameLenConversionFailed(String),
 }
 
 // Generation of an error is completely separate from how it is displayed.
@@ -23,7 +24,8 @@ impl fmt::Display for Error {
         match self {
             Self::LengthLimit => f.write_str("The length limit cannot be smaller than the input username"),
             Self::NoValidName => f.write_str("There are no templates that can fit in the character limit using specified username"),
-            Self::StringTemplate(inner) => f.write_str(inner.to_string().as_str())
+            Self::StringTemplate(inner) => f.write_str(inner.to_string().as_str()),
+            Self::UsernameLenConversionFailed(inner) => f.write_str(format!("Failed to convert username.len() into a u32 for comparison. Reason: {}", inner).as_str()),
         }
     }
 }
@@ -31,5 +33,11 @@ impl fmt::Display for Error {
 impl From<TemplateError> for Error {
     fn from(e: TemplateError) -> Self {
         Self::StringTemplate(format!("{}", e))
+    }
+}
+
+impl From<TryFromIntError> for Error {
+    fn from(e: TryFromIntError) -> Self {
+        Self::UsernameLenConversionFailed(format!("{}", e))
     }
 }

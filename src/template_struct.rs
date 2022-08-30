@@ -8,7 +8,7 @@ pub struct NameTemplate<'a> {
 
 #[derive(Debug, Copy, Clone)]
 pub struct NameInfo {
-    pub len: u32,
+    pub len: u64,
     pub name_type: NameType,
 }
 

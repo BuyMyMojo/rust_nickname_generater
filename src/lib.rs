@@ -44,13 +44,18 @@ static STRING_TEMPLATE_MATCHER: Lazy<Regex> =
 /// use rust_nickname_generater::{generate_name, get_template_by_name};
 ///
 /// // Search for specific template by name
-/// let template: Option<NameTemplate> = get_template_by_name("Deny warnings".to_string());
+/// let template: Option<NameTemplate> = get_template_by_name("Deny warnings");
 ///
 /// let nickname = generate_name("Mojo".to_string(), template.unwrap()).unwrap();
 ///
 ///  assert_eq!(nickname, "#![deny(warnings)] Mojo();")
 ///
 /// ```
+///
+/// # Errors
+///
+/// Will return an error if for some reason [`new_string_template`](https://lib.rs/new_string_template) fails to render the template.
+/// It will be an `Error::UsernameLenConversionFailed`
 pub fn generate_name(username: String, template: NameTemplate) -> Result<String> {
     let templ = Template::new(template.contents).with_regex(&STRING_TEMPLATE_MATCHER);
     let data = {
@@ -73,9 +78,18 @@ pub fn generate_name(username: String, template: NameTemplate) -> Result<String>
 /// // Generate a name that will fit in Discord
 /// println!("{}", generate_random_name("mojo".to_string(), 32).unwrap());
 /// ```
-pub fn generate_random_name(username: String, char_limit: u32) -> Result<String> {
+///
+/// # Errors
+///
+/// This can only fail if it fails to convert the username.len() to a u64 for length check.
+/// If this does happen to occur it will return `Error::UsernameLenConversionFailed`.
+pub fn generate_random_name(username: String, char_limit: u64) -> Result<String> {
+    let name_len: u64 = match username.len().try_into() {
+        Ok(x) => x,
+        Err(e) => return Err(e.into()),
+    };
     // Make sure name isn't too long/limit is too small
-    if username.len() > char_limit.try_into().unwrap() {
+    if char_limit < name_len {
         return Err(Error::LengthLimit);
     }
 
@@ -83,7 +97,7 @@ pub fn generate_random_name(username: String, char_limit: u32) -> Result<String>
     let mut valid_templates: Vec<NameTemplate> = Vec::new();
 
     for temp in all_templates {
-        let total_len: u32 = temp.info.len.add(username.len() as u32);
+        let total_len: u64 = temp.info.len.add(username.len() as u64);
 
         // Only push templates that can possibly fit within limit after being rendered
         if total_len.le(&char_limit) {
@@ -96,7 +110,10 @@ pub fn generate_random_name(username: String, char_limit: u32) -> Result<String>
         return Err(Error::NoValidName);
     }
 
-    let template = valid_templates.choose(&mut rand::thread_rng()).unwrap();
+    let template = match valid_templates.choose(&mut rand::thread_rng()) {
+        Some(t) => t,
+        None => unreachable!(),
+    };
 
     generate_name(username, *template)
 }
@@ -109,7 +126,7 @@ pub fn get_all_template_names() -> Vec<String> {
     let mut names: Vec<String> = Vec::new();
 
     for temp in templates {
-        names.push(temp.name.to_string())
+        names.push(temp.name.to_string());
     }
 
     names.sort();
@@ -125,7 +142,7 @@ pub fn get_all_template_examples() -> Vec<String> {
     let mut examples: Vec<String> = Vec::new();
 
     for temp in templates {
-        examples.push(temp.example.to_string())
+        examples.push(temp.example.to_string());
     }
 
     examples.sort();
@@ -136,11 +153,11 @@ pub fn get_all_template_examples() -> Vec<String> {
 // TODO: Add fuzzy search?
 /// Returns an option with a template with the given name
 #[must_use]
-pub fn get_template_by_name(name: String) -> Option<NameTemplate<'static>> {
+pub fn get_template_by_name(name: &str) -> Option<NameTemplate<'static>> {
     let templates = get_all_templates();
 
     // Search for specific template by name
-    templates.into_iter().find(|x| *x.name == name)
+    templates.into_iter().find(|x| *x.name == *name)
 }
 
 /// Returns a Vec of all built in templates
@@ -158,19 +175,19 @@ pub fn get_all_templates() -> Vec<NameTemplate<'static>> {
     let mut templates: Vec<NameTemplate> = Vec::new();
 
     for temp in FUNCTION_TEMPLTES {
-        templates.push(temp)
+        templates.push(temp);
     }
 
     for temp in VARIABLE_TEMPLTES {
-        templates.push(temp)
+        templates.push(temp);
     }
 
     for temp in FUNCTION_VARIABLE_TEMPLTES {
-        templates.push(temp)
+        templates.push(temp);
     }
 
     for temp in MACRO_TEMPLTES {
-        templates.push(temp)
+        templates.push(temp);
     }
 
     templates
@@ -195,28 +212,28 @@ pub fn get_templates_of_type(name_type: NameType) -> Vec<NameTemplate<'static>> 
             let con = MACRO_TEMPLTES;
 
             for temp in con {
-                templates.push(temp)
+                templates.push(temp);
             }
         }
         NameType::Var => {
             let con = VARIABLE_TEMPLTES;
 
             for temp in con {
-                templates.push(temp)
+                templates.push(temp);
             }
         }
         NameType::FunctionVar => {
             let con = FUNCTION_VARIABLE_TEMPLTES;
 
             for temp in con {
-                templates.push(temp)
+                templates.push(temp);
             }
         }
         NameType::Function => {
             let con = FUNCTION_TEMPLTES;
 
             for temp in con {
-                templates.push(temp)
+                templates.push(temp);
             }
         }
     }
@@ -293,15 +310,15 @@ mod tests {
         let mut fails = Vec::new();
 
         for name in result {
-            let temp = get_template_by_name(name).unwrap();
+            let temp = get_template_by_name(&name).unwrap();
 
             match generate_name("username".to_string(), temp) {
                 Ok(n) => match n.as_str() {
                     "#![deny(warnings)] username();" => {
-                        println!("#![deny(warnings)] yuna();")
+                        println!("#![deny(warnings)] yuna();");
                     }
                     "&'a username" => {
-                        println!("&'a evelyn")
+                        println!("&'a evelyn");
                     }
                     n => {
                         println!("{n}");
@@ -317,10 +334,10 @@ mod tests {
     #[test]
     fn search_for_specific_template() {
         // Search for specific template by name
-        let template: Option<NameTemplate> = get_template_by_name("Deny warnings".to_string());
+        let template: Option<NameTemplate> = get_template_by_name("Deny warnings");
 
         let nickname = generate_name("Mojo".to_string(), template.unwrap()).unwrap();
 
-        assert_eq!(nickname, "#![deny(warnings)] Mojo();")
+        assert_eq!(nickname, "#![deny(warnings)] Mojo();");
     }
 }
