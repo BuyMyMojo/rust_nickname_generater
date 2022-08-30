@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "Cargo.toml",
-        "lib.rs"
+        "lib.rs",
+        "/docs"
     ]
 }
