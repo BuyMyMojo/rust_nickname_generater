@@ -324,6 +324,29 @@
 <span id="318">318</span>
 <span id="319">319</span>
 <span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
+<span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
+<span id="342">342</span>
+<span id="343">343</span>
 </pre><pre class="rust"><code><span class="doccomment">//!</span>
 <span class="doccomment">//! [![&quot;ay that&#39;s where the &#39;stralian accent comes through&quot;](https://raw.githubusercontent.com/BuyMyMojo/rust_nickname_generater/master/images/TheReasonTheNameIsSpeltLikeThatOhMyThisIsALongFileName.png)](https://s3.buymymojo.net/ShareX/2022/08/01/17/rust%20nickname%20genera.wav)</span>
 <span class="doccomment">//!</span>
@@ -353,30 +376,36 @@
 
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::error</span>::{<span class="ident">Error</span>, <span class="prelude-ty">Result</span>};
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::template_struct</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::template_struct</span>::{<span class="ident">NameTemplate</span>, <span class="ident">NameType</span>};
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::templates</span>::{
     <span class="ident">FUNCTION_TEMPLTES</span>, <span class="ident">FUNCTION_VARIABLE_TEMPLTES</span>, <span class="ident">MACRO_TEMPLTES</span>, <span class="ident">VARIABLE_TEMPLTES</span>,
 };
 
-<span class="doccomment">/// Given a useranem and NameTemplate output the rendered name</span>
+<span class="comment">// ? I don&#39;t think I need to make this public?</span>
+<span class="comment">// The following regex requires at least one space between &quot;{{&quot; and &quot;}}&quot; and allows variables with spaces</span>
+<span class="kw">static</span> <span class="ident">STRING_TEMPLATE_MATCHER</span>: <span class="ident">Lazy</span><span class="op">&lt;</span><span class="ident">Regex</span><span class="op">&gt;</span> <span class="op">=</span>
+    <span class="ident">Lazy::new</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Regex::new</span>(<span class="string">r&quot;(?mi)\{\{\s+([^\}]+)\s+\}\}&quot;</span>).<span class="ident">unwrap</span>());
+
+<span class="doccomment">/// Given a useranem and `NameTemplate` output the rendered name</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```rust</span>
 <span class="doccomment">/// use rust_nickname_generater::template_struct::*;</span>
 <span class="doccomment">/// use rust_nickname_generater::{generate_name, get_template_by_name};</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// // Search for specific template by name</span>
-<span class="doccomment">/// let template: Option&lt;NameTemplate&gt; = get_template_by_name(&quot;Deny warnings&quot;.to_string());</span>
+<span class="doccomment">/// let template: Option&lt;NameTemplate&gt; = get_template_by_name(&quot;Deny warnings&quot;);</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// let nickname = generate_name(&quot;Mojo&quot;.to_string(), template.unwrap()).unwrap();</span>
 <span class="doccomment">///</span>
 <span class="doccomment">///  assert_eq!(nickname, &quot;#![deny(warnings)] Mojo();&quot;)</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Errors</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Will return an error if for some reason [`new_string_template`](https://lib.rs/new_string_template) fails to render the template.</span>
+<span class="doccomment">/// It will be an `Error::UsernameLenConversionFailed`</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generate_name</span>(<span class="ident">username</span>: <span class="ident">String</span>, <span class="ident">template</span>: <span class="ident">NameTemplate</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-    <span class="comment">// The following regex requires at least one space between &quot;{{&quot; and &quot;}}&quot; and allows variables with spaces</span>
-    <span class="kw">static</span> <span class="ident">STRING_TEMPLATE_MATCHER</span>: <span class="ident">Lazy</span><span class="op">&lt;</span><span class="ident">Regex</span><span class="op">&gt;</span> <span class="op">=</span>
-        <span class="ident">Lazy::new</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Regex::new</span>(<span class="string">r&quot;(?mi)\{\{\s+([^\}]+)\s+\}\}&quot;</span>).<span class="ident">unwrap</span>());
-
     <span class="kw">let</span> <span class="ident">templ</span> <span class="op">=</span> <span class="ident">Template::new</span>(<span class="ident">template</span>.<span class="ident">contents</span>).<span class="ident">with_regex</span>(<span class="kw-2">&amp;</span><span class="ident">STRING_TEMPLATE_MATCHER</span>);
     <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">map</span> <span class="op">=</span> <span class="ident">HashMap::new</span>();
@@ -398,9 +427,18 @@
 <span class="doccomment">/// // Generate a name that will fit in Discord</span>
 <span class="doccomment">/// println!(&quot;{}&quot;, generate_random_name(&quot;mojo&quot;.to_string(), 32).unwrap());</span>
 <span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generate_random_name</span>(<span class="ident">username</span>: <span class="ident">String</span>, <span class="ident">char_limit</span>: <span class="ident">u32</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Errors</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This can only fail if it fails to convert the username.len() to a u64 for length check.</span>
+<span class="doccomment">/// If this does happen to occur it will return `Error::UsernameLenConversionFailed`.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generate_random_name</span>(<span class="ident">username</span>: <span class="ident">String</span>, <span class="ident">char_limit</span>: <span class="ident">u64</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="ident">name_len</span>: <span class="ident">u64</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">username</span>.<span class="ident">len</span>().<span class="ident">try_into</span>() {
+        <span class="prelude-val">Ok</span>(<span class="ident">x</span>) =&gt; <span class="ident">x</span>,
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>()),
+    };
     <span class="comment">// Make sure name isn&#39;t too long/limit is too small</span>
-    <span class="kw">if</span> <span class="ident">username</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="ident">char_limit</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>() {
+    <span class="kw">if</span> <span class="ident">char_limit</span> <span class="op">&lt;</span> <span class="ident">name_len</span> {
         <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">Error::LengthLimit</span>);
     }
 
@@ -408,7 +446,7 @@
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">valid_templates</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">all_templates</span> {
-        <span class="kw">let</span> <span class="ident">total_len</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">temp</span>.<span class="ident">info</span>.<span class="ident">len</span>.<span class="ident">add</span>(<span class="ident">username</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>);
+        <span class="kw">let</span> <span class="ident">total_len</span>: <span class="ident">u64</span> <span class="op">=</span> <span class="ident">temp</span>.<span class="ident">info</span>.<span class="ident">len</span>.<span class="ident">add</span>(<span class="ident">username</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span>);
 
         <span class="comment">// Only push templates that can possibly fit within limit after being rendered</span>
         <span class="kw">if</span> <span class="ident">total_len</span>.<span class="ident">le</span>(<span class="kw-2">&amp;</span><span class="ident">char_limit</span>) {
@@ -421,19 +459,23 @@
         <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">Error::NoValidName</span>);
     }
 
-    <span class="kw">let</span> <span class="ident">template</span> <span class="op">=</span> <span class="ident">valid_templates</span>.<span class="ident">choose</span>(<span class="kw-2">&amp;mut</span> <span class="ident">rand::thread_rng</span>()).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">template</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">valid_templates</span>.<span class="ident">choose</span>(<span class="kw-2">&amp;mut</span> <span class="ident">rand::thread_rng</span>()) {
+        <span class="prelude-val">Some</span>(<span class="ident">t</span>) =&gt; <span class="ident">t</span>,
+        <span class="prelude-val">None</span> =&gt; <span class="macro">unreachable!</span>(),
+    };
 
     <span class="ident">generate_name</span>(<span class="ident">username</span>, <span class="kw-2">*</span><span class="ident">template</span>)
 }
 
 <span class="doccomment">/// Returns a Vec&lt;String&gt; of all template names</span>
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_all_template_names</span>() -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">templates</span> <span class="op">=</span> <span class="ident">get_all_templates</span>();
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">names</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">templates</span> {
-        <span class="ident">names</span>.<span class="ident">push</span>(<span class="ident">temp</span>.<span class="ident">name</span>.<span class="ident">to_string</span>())
+        <span class="ident">names</span>.<span class="ident">push</span>(<span class="ident">temp</span>.<span class="ident">name</span>.<span class="ident">to_string</span>());
     }
 
     <span class="ident">names</span>.<span class="ident">sort</span>();
@@ -442,13 +484,14 @@
 }
 
 <span class="doccomment">/// Returns a Vec&lt;String&gt; of all template examples</span>
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_all_template_examples</span>() -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">templates</span> <span class="op">=</span> <span class="ident">get_all_templates</span>();
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">examples</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">templates</span> {
-        <span class="ident">examples</span>.<span class="ident">push</span>(<span class="ident">temp</span>.<span class="ident">example</span>.<span class="ident">to_string</span>())
+        <span class="ident">examples</span>.<span class="ident">push</span>(<span class="ident">temp</span>.<span class="ident">example</span>.<span class="ident">to_string</span>());
     }
 
     <span class="ident">examples</span>.<span class="ident">sort</span>();
@@ -458,11 +501,12 @@
 
 <span class="comment">// TODO: Add fuzzy search?</span>
 <span class="doccomment">/// Returns an option with a template with the given name</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_template_by_name</span>(<span class="ident">name</span>: <span class="ident">String</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&lt;</span><span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_template_by_name</span>(<span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&lt;</span><span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">templates</span> <span class="op">=</span> <span class="ident">get_all_templates</span>();
 
     <span class="comment">// Search for specific template by name</span>
-    <span class="ident">templates</span>.<span class="ident">into_iter</span>().<span class="ident">find</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">x</span>.<span class="ident">name</span> <span class="op">==</span> <span class="ident">name</span>)
+    <span class="ident">templates</span>.<span class="ident">into_iter</span>().<span class="ident">find</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">x</span>.<span class="ident">name</span> <span class="op">==</span> <span class="kw-2">*</span><span class="ident">name</span>)
 }
 
 <span class="doccomment">/// Returns a Vec of all built in templates</span>
@@ -475,23 +519,24 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// println!(&quot;{:?}&quot;, templates.first());</span>
 <span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_all_templates</span>() -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&lt;</span><span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">templates</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">FUNCTION_TEMPLTES</span> {
-        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
     }
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">VARIABLE_TEMPLTES</span> {
-        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
     }
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">FUNCTION_VARIABLE_TEMPLTES</span> {
-        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
     }
 
     <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">MACRO_TEMPLTES</span> {
-        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+        <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
     }
 
     <span class="ident">templates</span>
@@ -507,6 +552,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// println!(&quot;{:?}&quot;, templates.first());</span>
 <span class="doccomment">/// ```</span>
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_templates_of_type</span>(<span class="ident">name_type</span>: <span class="ident">NameType</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&lt;</span><span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">templates</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
@@ -515,28 +561,28 @@
             <span class="kw">let</span> <span class="ident">con</span> <span class="op">=</span> <span class="ident">MACRO_TEMPLTES</span>;
 
             <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">con</span> {
-                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
             }
         }
         <span class="ident">NameType::Var</span> =&gt; {
             <span class="kw">let</span> <span class="ident">con</span> <span class="op">=</span> <span class="ident">VARIABLE_TEMPLTES</span>;
 
             <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">con</span> {
-                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
             }
         }
         <span class="ident">NameType::FunctionVar</span> =&gt; {
             <span class="kw">let</span> <span class="ident">con</span> <span class="op">=</span> <span class="ident">FUNCTION_VARIABLE_TEMPLTES</span>;
 
             <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">con</span> {
-                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
             }
         }
         <span class="ident">NameType::Function</span> =&gt; {
             <span class="kw">let</span> <span class="ident">con</span> <span class="op">=</span> <span class="ident">FUNCTION_TEMPLTES</span>;
 
             <span class="kw">for</span> <span class="ident">temp</span> <span class="kw">in</span> <span class="ident">con</span> {
-                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>)
+                <span class="ident">templates</span>.<span class="ident">push</span>(<span class="ident">temp</span>);
             }
         }
     }
@@ -546,7 +592,7 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::error</span>::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::error::Error</span>;
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -613,15 +659,15 @@
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">fails</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
         <span class="kw">for</span> <span class="ident">name</span> <span class="kw">in</span> <span class="ident">result</span> {
-            <span class="kw">let</span> <span class="ident">temp</span> <span class="op">=</span> <span class="ident">get_template_by_name</span>(<span class="ident">name</span>).<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="ident">temp</span> <span class="op">=</span> <span class="ident">get_template_by_name</span>(<span class="kw-2">&amp;</span><span class="ident">name</span>).<span class="ident">unwrap</span>();
 
             <span class="kw">match</span> <span class="ident">generate_name</span>(<span class="string">&quot;username&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">temp</span>) {
                 <span class="prelude-val">Ok</span>(<span class="ident">n</span>) =&gt; <span class="kw">match</span> <span class="ident">n</span>.<span class="ident">as_str</span>() {
                     <span class="string">&quot;#![deny(warnings)] username();&quot;</span> =&gt; {
-                        <span class="macro">println!</span>(<span class="string">&quot;#![deny(warnings)] yuna();&quot;</span>)
+                        <span class="macro">println!</span>(<span class="string">&quot;#![deny(warnings)] yuna();&quot;</span>);
                     }
                     <span class="string">&quot;&amp;&#39;a username&quot;</span> =&gt; {
-                        <span class="macro">println!</span>(<span class="string">&quot;&amp;&#39;a evelyn&quot;</span>)
+                        <span class="macro">println!</span>(<span class="string">&quot;&amp;&#39;a evelyn&quot;</span>);
                     }
                     <span class="ident">n</span> =&gt; {
                         <span class="macro">println!</span>(<span class="string">&quot;{n}&quot;</span>);
@@ -637,11 +683,11 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">search_for_specific_template</span>() {
         <span class="comment">// Search for specific template by name</span>
-        <span class="kw">let</span> <span class="ident">template</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">get_template_by_name</span>(<span class="string">&quot;Deny warnings&quot;</span>.<span class="ident">to_string</span>());
+        <span class="kw">let</span> <span class="ident">template</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NameTemplate</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">get_template_by_name</span>(<span class="string">&quot;Deny warnings&quot;</span>);
 
         <span class="kw">let</span> <span class="ident">nickname</span> <span class="op">=</span> <span class="ident">generate_name</span>(<span class="string">&quot;Mojo&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">template</span>.<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
 
-        <span class="macro">assert_eq!</span>(<span class="ident">nickname</span>, <span class="string">&quot;#![deny(warnings)] Mojo();&quot;</span>)
+        <span class="macro">assert_eq!</span>(<span class="ident">nickname</span>, <span class="string">&quot;#![deny(warnings)] Mojo();&quot;</span>);
     }
 }
 </code></pre></div>
