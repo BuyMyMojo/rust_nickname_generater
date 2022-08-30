@@ -29,7 +29,7 @@ impl fmt::Display for Error {
 }
 
 impl From<TemplateError> for Error {
-    fn from(e: TemplateError) -> Error {
-        Error::StringTemplate(format!("{}", e))
+    fn from(e: TemplateError) -> Self {
+        Self::StringTemplate(format!("{}", e))
     }
 }

@@ -27,7 +27,7 @@ pub mod templates;
 
 use crate::error::{Error, Result};
 
-use crate::template_struct::*;
+use crate::template_struct::{NameTemplate, NameType};
 use crate::templates::{
     FUNCTION_TEMPLTES, FUNCTION_VARIABLE_TEMPLTES, MACRO_TEMPLTES, VARIABLE_TEMPLTES,
 };
@@ -37,7 +37,7 @@ use crate::templates::{
 static STRING_TEMPLATE_MATCHER: Lazy<Regex> =
     Lazy::new(|| Regex::new(r"(?mi)\{\{\s+([^\}]+)\s+\}\}").unwrap());
 
-/// Given a useranem and NameTemplate output the rendered name
+/// Given a useranem and `NameTemplate` output the rendered name
 ///
 /// ```rust
 /// use rust_nickname_generater::template_struct::*;
@@ -102,6 +102,7 @@ pub fn generate_random_name(username: String, char_limit: u32) -> Result<String>
 }
 
 /// Returns a Vec<String> of all template names
+#[must_use]
 pub fn get_all_template_names() -> Vec<String> {
     let templates = get_all_templates();
 
@@ -117,6 +118,7 @@ pub fn get_all_template_names() -> Vec<String> {
 }
 
 /// Returns a Vec<String> of all template examples
+#[must_use]
 pub fn get_all_template_examples() -> Vec<String> {
     let templates = get_all_templates();
 
@@ -133,6 +135,7 @@ pub fn get_all_template_examples() -> Vec<String> {
 
 // TODO: Add fuzzy search?
 /// Returns an option with a template with the given name
+#[must_use]
 pub fn get_template_by_name(name: String) -> Option<NameTemplate<'static>> {
     let templates = get_all_templates();
 
@@ -150,6 +153,7 @@ pub fn get_template_by_name(name: String) -> Option<NameTemplate<'static>> {
 ///
 /// println!("{:?}", templates.first());
 /// ```
+#[must_use]
 pub fn get_all_templates() -> Vec<NameTemplate<'static>> {
     let mut templates: Vec<NameTemplate> = Vec::new();
 
@@ -182,6 +186,7 @@ pub fn get_all_templates() -> Vec<NameTemplate<'static>> {
 ///
 /// println!("{:?}", templates.first());
 /// ```
+#[must_use]
 pub fn get_templates_of_type(name_type: NameType) -> Vec<NameTemplate<'static>> {
     let mut templates: Vec<NameTemplate> = Vec::new();
 
@@ -221,7 +226,7 @@ pub fn get_templates_of_type(name_type: NameType) -> Vec<NameTemplate<'static>> 
 
 #[cfg(test)]
 mod tests {
-    use super::error::*;
+    use super::error::Error;
     use super::*;
 
     #[test]

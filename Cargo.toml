@@ -9,6 +9,8 @@ authors = ["BuyMyMojo <hello@buymymojo.net>"]
 license = "Apache-2.0"
 readme = "README.md"
 include = ["**/*.rs", "Cargo.toml", "Cargo.lock"]
+keywords = ["nickname", "username", "generator"]
+categories = ["text-processing", "template-engine"]
 
 [features]
 default = []

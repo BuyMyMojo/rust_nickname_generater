@@ -53,7 +53,7 @@
 //! vec![username]
 //!
 //! ```
-use crate::template_struct::*;
+use crate::template_struct::{NameInfo, NameTemplate, NameType};
 
 /// A list of function looking templates
 pub const FUNCTION_TEMPLTES: [NameTemplate; 10] = [
